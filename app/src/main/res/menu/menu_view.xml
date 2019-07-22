@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/itmSync"
+        android:title="Refresh/Sync" />
+    <item
+        android:id="@+id/itmSyncSoybean"
+        android:title="Sync Soy bean"
+        />
+
+
+    <item android:title="Showing from:">
+        <menu>
+            <item
+                android:id="@+id/itmStartDate"
+                android:title="Start date" />
+            <item android:title="to" />
+            <item
+                android:id="@+id/itmEndDate"
+                android:title="End date" />
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/itmStatus"
+        android:orderInCategory="100"
+        android:title="Show:"
+        app:showAsAction="never">
+        <menu>
+            <group
+                android:id="@+id/grpStatus"
+                android:checkableBehavior="single"
+                android:title="Showing">
+                <item
+                    android:id="@+id/itmITIn"
+                    android:title="Internal Transfers In" />
+                <item
+                    android:id="@+id/itmITOut"
+                    android:title="Internal Transfers Out" />
+                <item
+                    android:id="@+id/itmSale"
+                    android:title="Sales" />
+                <item
+                    android:id="@+id/itmLMRDelivery"
+                    android:title="Deliveries to LMR" />
+                <item
+                    android:id="@+id/itmLMDDelivery"
+                    android:title="Deliveries to LMD" />
+                <item
+                    android:id="@+id/itmSupplierDelivery"
+                    android:title="Deliveries from Supplier" />
+                <item
+                    android:id="@+id/itmLMRPickup"
+                    android:title="Pickups from LMR" />
+                <item
+                    android:id="@+id/itmLMDPickup"
+                    android:title="Pickups from LMD" />
+                <item
+                    android:id="@+id/itmAll"
+                    android:title="All" />
+
+            </group>
+        </menu>
+
+    </item>
+
+</menu>

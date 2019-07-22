@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Inventory Distribution (LML)</string>
+    <string name="title_activity_enter_lmr__id">EnterLMR_ID</string>
+</resources>

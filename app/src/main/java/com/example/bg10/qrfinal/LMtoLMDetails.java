@@ -252,7 +252,8 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                             break;
 
                         case "Delivery to LMD":
-                            smartUpdateAccess.open();
+                            //Smart checks commented out here
+                            /*smartUpdateAccess.open();
                             Integer upperLimit2 = smartUpdateAccess.CheckUpperLimit(prefs.getString("productid", ""));
                             Integer currentUnit2 = Integer.parseInt(etUnit.getText().toString());
                             if(currentUnit2 > upperLimit2 && check.equals("no")){
@@ -262,7 +263,8 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                 snackbar.show();
                                 check = "yes";
                                 break;
-                            }
+                            }*/
+
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Delivery to LMD")
                                     .setMessage("Are you sure you want to move " + etUnit.getText().toString() + " of " + tvProduct.getText().toString() + " from " + prefs.getString("lmdid", "") + " to " + prefs.getString("lmdid2", "") + "?")
@@ -332,8 +334,9 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                             break;
 
                         case "Delivery to LMR":
+                            //Smart checks commented out here
                             //Check if product is an LMR product.
-                            smartUpdateAccess.open();
+                            /*smartUpdateAccess.open();
                             if(smartUpdateAccess.checkLMRStatus(prefs.getString("productid", "")) && check.equals("no")){
                                 Toast.makeText(getActivity(), "Please Confirm the product again", Toast.LENGTH_LONG).show();
                                 check = "yes";
@@ -352,7 +355,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                     snackbar.show();
                                     check = "yes";
                                     break;
-                                }
+                                }*/
 
                                 new AlertDialog.Builder(getActivity())
                                         .setTitle("Delivery to LMR")
@@ -429,8 +432,8 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                             break;
                         case "Internal Transfer Out":
-
-                            //Check for known quantity of product.
+                            //Smart checks commented out here
+                            /*//Check for known quantity of product.
                             smartUpdateAccess.open();
                             Integer knownQty2 = smartUpdateAccess.CheckKnownQty(prefs.getString("productid", ""));
                             Integer unit2 = Integer.parseInt(etUnit.getText().toString());
@@ -454,7 +457,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                 snackbar.show();
                                 check = "yes";
                                 break;
-                            }
+                            }*/
 
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Internal Transfer Out")
@@ -529,7 +532,8 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                             break;
 
                         case "Pickup from LMD":
-                                smartUpdateAccess.open();
+                                //Smart checks commented out here
+                                /*smartUpdateAccess.open();
                                 Integer upperLimit = smartUpdateAccess.CheckUpperLimit(prefs.getString("productid", ""));
                                 Integer currentUnit = Integer.parseInt(etUnit.getText().toString());
                                 if(currentUnit > upperLimit && check.equals("no")){
@@ -540,7 +544,8 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                     check = "yes";
                                     break;
 
-                                }
+                                }*/
+
                                 new AlertDialog.Builder(getActivity())
                                     .setTitle("Pickup from LMD")
                                     .setMessage("Are you sure you want to move " + etUnit.getText().toString() + " of " + tvProduct.getText().toString() + " from " + prefs.getString("lmdid", "") + " to " + prefs.getString("lmdid2", "") + "?")

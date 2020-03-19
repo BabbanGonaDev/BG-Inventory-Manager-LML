@@ -53,7 +53,7 @@ public class Operations extends AppCompatActivity implements View.OnClickListene
         btnReturn.setOnClickListener(this);
         btnExportInvT.setOnClickListener(this);
 
-        tvAppVersion.setText("(C) BG LML Inventory " + " " +  BuildConfig.VERSION_NAME);
+        tvAppVersion.setText("(C) BG MSB Inventory " + " " +  BuildConfig.VERSION_NAME);
 
     }
 

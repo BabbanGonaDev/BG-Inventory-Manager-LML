@@ -994,7 +994,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                         break;
                 }
                 break;
-            case "Contract":
+            /*case "Contract":
                 switch (prefs.getString("transtype", "")) {
                     case "Delivery to Warehouse":
                         switch (prefs.getString("datatobescanned", "")) {
@@ -1264,7 +1264,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                         }
                         break;
                 }
-                break;
+                break;*/
                 //The Next Case of Fragment Type goes here.
         }
 

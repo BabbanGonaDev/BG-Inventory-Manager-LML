@@ -213,8 +213,8 @@ public class StockingDetails extends Fragment implements View.OnClickListener {
 
                     switch (prefs.getString("transtype","XXXX")) {
                         case "Receiving":
-
-                            //SmartUpdateAccess smartUpdateAccess = new SmartUpdateAccess(getActivity());
+                            //Smart checks commented out here
+                            /*//SmartUpdateAccess smartUpdateAccess = new SmartUpdateAccess(getActivity());
                             smartUpdateAccess.open();
                             Integer stockingQty = smartUpdateAccess.CheckStockingQty(prefs.getString("productid", ""));
                             Integer unit = Integer.parseInt(etUnit.getText().toString());
@@ -244,7 +244,7 @@ public class StockingDetails extends Fragment implements View.OnClickListener {
                                 snackbar.show();
                                 check = "yes";
                                 break;
-                            }
+                            }*/
 
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Begin stocking warehouse")

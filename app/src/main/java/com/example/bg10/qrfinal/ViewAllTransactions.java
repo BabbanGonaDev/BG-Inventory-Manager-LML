@@ -119,8 +119,9 @@ public class ViewAllTransactions extends AppCompatActivity {
         menu.findItem(R.id.itmEndDate).setTitle(prefs2.getString("enddate",todaysDate));      //sets the item text for end date
         return super.onPrepareOptionsMenu(menu);
     }
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)     {
+    public boolean onOptionsItemSelected(MenuItem item) {
         InventoryTDBhandler db = new InventoryTDBhandler(getApplicationContext());
         item.setChecked(true);
         switch (item.getItemId()) {

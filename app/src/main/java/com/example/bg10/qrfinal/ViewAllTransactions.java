@@ -324,7 +324,7 @@ public class ViewAllTransactions extends AppCompatActivity {
                     String staffID = prefs.getString("staff_id","");
                     params.put("unsyncedJSON", db.composeJSONfromSQLite());
                     params.put("staff_id", staffID);
-                    client.post("http://apps.babbangona.com/qrcode/inventorytuploadagain.php", params, new AsyncHttpResponseHandler() {
+                    client.post("http://apps.babbangona.com/qrcode/inventorytmsbupload.php", params, new AsyncHttpResponseHandler() {
 
                         @Override
                         public void onSuccess(String response) {

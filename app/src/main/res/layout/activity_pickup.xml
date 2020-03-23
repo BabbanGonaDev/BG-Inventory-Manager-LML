@@ -20,12 +20,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="Pickup From Warehouse" />
+
             <Button
+                android:id="@+id/btnLMDPickup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:id="@+id/btnLMDPickup"
-                android:text="Pickup from LMD"/>
+                android:text="Pickup from MSB" />
 
             <Button
                 android:id="@+id/btnLMRPickup"

@@ -809,8 +809,6 @@ public class InventoryTDBhandler extends SQLiteOpenHelper {
         version = prefs1.getString("appVersion", "");
         String timeStamp = String.valueOf(System.currentTimeMillis());
 
-
-
         cursor.moveToFirst();
         do
         {

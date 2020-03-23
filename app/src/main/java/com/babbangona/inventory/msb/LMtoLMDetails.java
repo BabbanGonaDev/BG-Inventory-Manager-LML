@@ -1,6 +1,5 @@
 package com.babbangona.inventory.msb;
 
-
 import android.app.DatePickerDialog;
 import android.app.Fragment;
 import android.content.Context;
@@ -21,7 +20,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
-
 
 public class LMtoLMDetails extends Fragment implements View.OnClickListener {
     SharedPreferences prefs;
@@ -148,7 +146,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                 break;
             case R.id.btnLMD2Scan:
                 prefs.edit().putString("scannerheading", "Scan Destination details")
-                         .putString("datatobescanned", "LMD2").commit();
+                        .putString("datatobescanned", "LMD2").commit();
                 startActivity(new Intent(getActivity(), LMDScan.class));
                 break;
             case R.id.btnCancel:
@@ -197,15 +195,13 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
-
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
                                                 @Override
                                                 public void onClick(View v) {
 
                                                     submit.setEnabled(false);
-                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
+                                                    InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
                                                             prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
@@ -249,17 +245,6 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                         case "Delivery to LMD":
                             //Smart checks commented out here
-                            /*smartUpdateAccess.open();
-                            Integer upperLimit2 = smartUpdateAccess.CheckUpperLimit(prefs.getString("productid", ""));
-                            Integer currentUnit2 = Integer.parseInt(etUnit.getText().toString());
-                            if(currentUnit2 > upperLimit2 && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Product Quantity again.", Snackbar.LENGTH_LONG);
-                                etUnit.setText("");
-                                etUnit2.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-                            }*/
 
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Delivery to LMD")
@@ -280,8 +265,6 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                             final Button cancel = views.findViewById(R.id.negative_button);
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
-
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -331,129 +314,83 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                         case "Delivery to LMR":
                             //Smart checks commented out here
-                            //Check if product is an LMR product.
-                            /*smartUpdateAccess.open();
-                            if(smartUpdateAccess.checkLMRStatus(prefs.getString("productid", "")) && check.equals("no")){
-                                Toast.makeText(getActivity(), "Please Confirm the product again", Toast.LENGTH_LONG).show();
-                                check = "yes";
-                                break;
 
-                            }
+                            new AlertDialog.Builder(getActivity())
+                                    .setTitle("Delivery to LMR")
+                                    .setMessage("Are you sure you want to move " + etUnit.getText().toString() + " of " + tvProduct.getText().toString() + " from " + prefs.getString("lmdid", "") + " to " + prefs.getString("lmdid2", "") + "?")
+                                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int id) {
 
-                                //Check for Invoice Quantity 75% of dataset.
-                                Integer invoiceQty = smartUpdateAccess.CheckInvoiceQty(prefs.getString("productid", ""));
-                                Integer currentInvoiceQty = Integer.parseInt(etUnit.getText().toString());
+                                            final AlertDialog.Builder alertadd = new AlertDialog.Builder(getActivity());
+                                            LayoutInflater factory = LayoutInflater.from(getActivity());
+                                            alertadd.setCancelable(true);
+                                            final View views = factory.inflate(R.layout.custom_layout, null);
+                                            final TextView details = views.findViewById(R.id.display);
+                                            final TextView details2 = views.findViewById(R.id.display2);
+                                            final Button submit = views.findViewById(R.id.positive_button);
+                                            alertadd.setView(views);
 
-                                if(currentInvoiceQty < invoiceQty && check.equals("no")){
-                                    Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Product Quantity again.", Snackbar.LENGTH_LONG);
-                                    etUnit.setText("");
-                                    etUnit2.setText("");
-                                    snackbar.show();
-                                    check = "yes";
-                                    break;
-                                }*/
+                                            final Button cancel = views.findViewById(R.id.negative_button);
 
-                                new AlertDialog.Builder(getActivity())
-                                        .setTitle("Delivery to LMR")
-                                        .setMessage("Are you sure you want to move " + etUnit.getText().toString() + " of " + tvProduct.getText().toString() + " from " + prefs.getString("lmdid", "") + " to " + prefs.getString("lmdid2", "") + "?")
-                                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int id) {
+                                            details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                                final AlertDialog.Builder alertadd = new AlertDialog.Builder(getActivity());
-                                                LayoutInflater factory = LayoutInflater.from(getActivity());
-                                                alertadd.setCancelable(true);
-                                                final View views = factory.inflate(R.layout.custom_layout, null);
-                                                final TextView details = views.findViewById(R.id.display);
-                                                final TextView details2 = views.findViewById(R.id.display2);
-                                                final Button submit = views.findViewById(R.id.positive_button);
-                                                alertadd.setView(views);
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
-                                                final Button cancel = views.findViewById(R.id.negative_button);
+                                            final AlertDialog ad = alertadd.show();
+                                            submit.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
 
-                                                details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
+                                                    submit.setEnabled(false);
+                                                    InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
+                                                    if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
+                                                            prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
 
-                                                //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                                        Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
 
-                                                final AlertDialog ad = alertadd.show();
-                                                submit.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-
-                                                        submit.setEnabled(false);
-                                                        InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
-                                                        if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
-                                                                prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                                prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
-
-                                                            Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
-
-                                                        }else{
-                                                            db1.onAdd(new Transaction(" ", prefs.getString("productid", ""),
+                                                    }else{
+                                                        db1.onAdd(new Transaction(" ", prefs.getString("productid", ""),
                                                                 prefs.getString("product", ""), etUnit.getText().toString(), "Sale",
                                                                 prefs.getString("lmdid2", ""), "Sale", "0", "0", prefs.getString("lmdhub", ""), tvDate1.getText().toString()));
-                                                        }
-                                                        //clears the product fragment
-                                                        prefs.edit().remove("product").commit();
-                                                        prefs.edit().remove("productid").commit();
-                                                        prefs.edit().remove("waybill").commit();
-                                                        prefs.edit().remove("date1").commit();
-                                                        prefs.edit().remove("date2").commit();
-                                                        prefs.edit().remove("lmdname2").commit();
-                                                        prefs.edit().remove("lmdid2").commit();
-                                                        prefs.edit().remove("quantity").commit();
-                                                        startActivity(new Intent(getActivity(), Transactions.class)
-                                                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                                                     }
-                                                });
+                                                    //clears the product fragment
+                                                    prefs.edit().remove("product").commit();
+                                                    prefs.edit().remove("productid").commit();
+                                                    prefs.edit().remove("waybill").commit();
+                                                    prefs.edit().remove("date1").commit();
+                                                    prefs.edit().remove("date2").commit();
+                                                    prefs.edit().remove("lmdname2").commit();
+                                                    prefs.edit().remove("lmdid2").commit();
+                                                    prefs.edit().remove("quantity").commit();
+                                                    startActivity(new Intent(getActivity(), Transactions.class)
+                                                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                                }
+                                            });
 
-                                                cancel.setOnClickListener(new View.OnClickListener() {
-                                                    @Override
-                                                    public void onClick(View v) {
-                                                        ad.dismiss();
-                                                    }
-                                                });
+                                            cancel.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    ad.dismiss();
+                                                }
+                                            });
 
-                                            }
-                                        })
+                                        }
+                                    })
 
-                                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int id) {
-                                                // takes them back to the activity before the zxing activity
+                                    .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int id) {
+                                            // takes them back to the activity before the zxing activity
 
-                                            }
-                                        })
-                                        .show();
+                                        }
+                                    })
+                                    .show();
 
                             break;
                         case "Internal Transfer Out":
                             //Smart checks commented out here
-                            /*//Check for known quantity of product.
-                            smartUpdateAccess.open();
-                            Integer knownQty2 = smartUpdateAccess.CheckKnownQty(prefs.getString("productid", ""));
-                            Integer unit2 = Integer.parseInt(etUnit.getText().toString());
-
-                            if(knownQty2 > unit2 && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Product Quantity again.", Snackbar.LENGTH_LONG);
-                                etUnit.setText("");
-                                etUnit2.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-
-                            }
-
-                            smartUpdateAccess.open();
-                            Integer cartonNo2 = smartUpdateAccess.CheckCartonNo(prefs.getString("productid", ""));
-                            if((unit2 % cartonNo2) != 0 && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Quantity again.", Snackbar.LENGTH_LONG);
-                                etUnit.setText("");
-                                etUnit2.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-                            }*/
 
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Internal Transfer Out")
@@ -528,21 +465,9 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                             break;
 
                         case "Pickup from LMD":
-                                //Smart checks commented out here
-                                /*smartUpdateAccess.open();
-                                Integer upperLimit = smartUpdateAccess.CheckUpperLimit(prefs.getString("productid", ""));
-                                Integer currentUnit = Integer.parseInt(etUnit.getText().toString());
-                                if(currentUnit > upperLimit && check.equals("no")){
-                                    Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Product Quantity again.", Snackbar.LENGTH_LONG);
-                                    etUnit.setText("");
-                                    etUnit2.setText("");
-                                    snackbar.show();
-                                    check = "yes";
-                                    break;
+                            //Smart checks commented out here
 
-                                }*/
-
-                                new AlertDialog.Builder(getActivity())
+                            new AlertDialog.Builder(getActivity())
                                     .setTitle("Pickup from LMD")
                                     .setMessage("Are you sure you want to move " + etUnit.getText().toString() + " of " + tvProduct.getText().toString() + " from " + prefs.getString("lmdid", "") + " to " + prefs.getString("lmdid2", "") + "?")
                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -562,10 +487,6 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
-
-                                            //details.setText(details.getText()+""+"Waybill No: "+"\n"+"Product ID: "+"\n"+"Product: "+"\n"+"Unit: "+"\n"+"In: "+"\n"+"Out: "+"\n"+"Type: "+"\n"+"Unit Price: "+"\n"+"Suggested Unit Price: "+"\n"+"LMD Hub: "+"\n"+"Date: ");
-
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -635,8 +556,6 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
-
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
                                                 @Override
@@ -704,8 +623,6 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                             final Button cancel = views.findViewById(R.id.negative_button);
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
-
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -792,18 +709,18 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                             prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
-                                                        //clears the product fragment
-                                                        prefs.edit().remove("product").commit();
-                                                        prefs.edit().remove("productid").commit();
-                                                        prefs.edit().remove("waybill").commit();
-                                                        prefs.edit().remove("date1").commit();
-                                                        prefs.edit().remove("date2").commit();
-                                                        prefs.edit().remove("lmdname2").commit();
-                                                        prefs.edit().remove("lmdid2").commit();
-                                                        prefs.edit().remove("quantity").commit();
+                                                    //clears the product fragment
+                                                    prefs.edit().remove("product").commit();
+                                                    prefs.edit().remove("productid").commit();
+                                                    prefs.edit().remove("waybill").commit();
+                                                    prefs.edit().remove("date1").commit();
+                                                    prefs.edit().remove("date2").commit();
+                                                    prefs.edit().remove("lmdname2").commit();
+                                                    prefs.edit().remove("lmdid2").commit();
+                                                    prefs.edit().remove("quantity").commit();
 
-                                                        startActivity(new Intent(getActivity(), Transactions.class)
-                                                                .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                                    startActivity(new Intent(getActivity(), Transactions.class)
+                                                            .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
 
                                                 }
                                             });

@@ -479,41 +479,4 @@ public class ViewAllTransactions extends AppCompatActivity {
         }
     }
 
-   /* public void smartProductUpdate(){
-        final SmartUpdateAccess smartUpdateAccess = new SmartUpdateAccess(ViewAllTransactions.this);
-        AsyncHttpClient client = new AsyncHttpClient();
-        RequestParams params = new RequestParams();
-
-        client.post("http://apps.babbangona.com/qrcode/smartupdate.php", params, new AsyncHttpResponseHandler(){
-            @Override
-            public void onSuccess(String response) {
-                try {
-                    JSONArray arr = new JSONArray(response);
-                    for (int i = 0; i < arr.length(); i++) {
-                        JSONObject obj = (JSONObject) arr.get(i);
-                        Log.d("TAG","Update in progress");
-                        *//*Log.d("Product", obj.get("product_id").toString());
-                        Log.d("expectedUnits", obj.get("expectedUnits").toString());
-                        Log.d("unitsPerCarton", obj.get("unitsPerCarton").toString());
-                        Log.d("LMRStatus", obj.get("LMRStatus").toString());*//*
-                        smartUpdateAccess.open();
-                        smartUpdateAccess.updateSmartUpdate(obj.get("product_id").toString(), obj.get("unitsPerCarton").toString(), obj.get("expectedUnits").toString(), obj.get("LMRStatus").toString());
-                    }
-
-                } catch (JSONException e) {
-                    Log.i("Error:", "Error caught at smart product update");
-                    e.printStackTrace();
-                }
-            }
-            @Override
-            public void onFailure(int statusCode, Throwable error, String content) {
-
-                if (statusCode == 404) {Toast.makeText(getApplicationContext(), "Requested resource not found (SU)", Toast.LENGTH_LONG).show();}
-                else if (statusCode == 500) {Toast.makeText(getApplicationContext(), "Something went wrong at server side (SU)", Toast.LENGTH_LONG).show();}
-                else {Toast.makeText(getApplicationContext(), "Unexpected error occurred! [Most common Error: Device might not be connected (SU)", Toast.LENGTH_LONG).show();}
-            }
-        });
-    }*/
-
-
 }

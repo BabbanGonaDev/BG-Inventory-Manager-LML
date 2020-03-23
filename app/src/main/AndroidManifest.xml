@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bg10.qrfinal">
+    package="com.babbangona.inventory.msb">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -24,7 +24,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.babbangona.inventory.msb.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,26 +33,26 @@
         </activity>
 
         <service
-            android:name=".NetworkSchedulerService"
+            android:name="com.babbangona.inventory.msb.NetworkSchedulerService"
             android:enabled="true"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <activity android:name=".Operations" />
+        <activity android:name="com.babbangona.inventory.msb.Operations" />
         <activity
-            android:name=".ViewAllTransactions"
+            android:name="com.babbangona.inventory.msb.ViewAllTransactions"
             android:theme="@style/AppTheme" />
-        <activity android:name=".LMDScan" />
-        <activity android:name=".Transactions" />
+        <activity android:name="com.babbangona.inventory.msb.LMDScan" />
+        <activity android:name="com.babbangona.inventory.msb.Transactions" />
         <activity
-            android:name=".Delivery"
+            android:name="com.babbangona.inventory.msb.Delivery"
             android:theme="@style/Theme.AppCompat.Light" />
-        <activity android:name=".Pickup" />
+        <activity android:name="com.babbangona.inventory.msb.Pickup" />
         <activity
-            android:name=".Main2Activity"
+            android:name="com.babbangona.inventory.msb.Main2Activity"
             android:exported="true" />
-        <activity android:name=".enterLMR" />
-        <activity android:name=".enterSupplier" />
+        <activity android:name="com.babbangona.inventory.msb.enterLMR" />
+        <activity android:name="com.babbangona.inventory.msb.enterSupplier" />
         <!--<activity android:name=".ContractDetails" />-->
     </application>
 

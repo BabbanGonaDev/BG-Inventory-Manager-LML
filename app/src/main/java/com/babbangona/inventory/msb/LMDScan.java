@@ -379,8 +379,8 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("lmdid2", data[1]);
                                     prefsEdit.putString("lmdhub2", data[2]);
                                     prefsEdit.commit();
-                                    if ((data[1].charAt(0) != 'R') || (data[1].charAt(16) != '9')) {
-                                        Toast.makeText(getApplicationContext(), "Please scan an LMD's details to proceed", Toast.LENGTH_LONG).show();
+                                    if ((!data[1].startsWith("IK")) || (data[1].length() != 10)) {
+                                        Toast.makeText(getApplicationContext(), "Please scan an MSB's details to proceed", Toast.LENGTH_LONG).show();
                                         finish();
                                     }
                                     new AlertDialog.Builder(this)
@@ -434,11 +434,11 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         emptySharedPref();
                                         finish();
                                     }else if(!data[5].matches(prefs.getString("lmdid2", ""))){
-                                        Toast.makeText(getApplicationContext(), "LMD Destination doesn't match, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(getApplicationContext(), "MSB Destination doesn't match, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if(data[5].charAt(0) != 'R' || data[5].charAt(16) != '9'){
-                                        Toast.makeText(getApplicationContext(), "Incorrect LMD Destination, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
+                                    }else if((!data[5].startsWith("IK")) || (data[5].length() != 10)){
+                                        Toast.makeText(getApplicationContext(), "Incorrect MSB Destination, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
                                     }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
@@ -603,8 +603,8 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("lmdid", data[1]);
                                     prefsEdit.putString("lmdhub", data[2]);
                                     prefsEdit.commit();
-                                    if ((data[1].charAt(0) != 'R') || (data[1].charAt(16) != '9')) {
-                                        Toast.makeText(getApplicationContext(), "Please scan an LMD's details to proceed", Toast.LENGTH_LONG).show();
+                                    if ((!data[1].startsWith("IK")) || (data[1].length() != 10)) {
+                                        Toast.makeText(getApplicationContext(), "Please scan an MSB's details to proceed", Toast.LENGTH_LONG).show();
                                         finish();
                                     }
                                     new AlertDialog.Builder(this)

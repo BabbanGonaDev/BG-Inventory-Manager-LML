@@ -197,7 +197,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +208,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                      InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                     //clears the product fragment
@@ -281,7 +281,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -292,7 +292,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                     //clears the product fragment
@@ -373,7 +373,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                                 details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                                //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                                //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                                 final AlertDialog ad = alertadd.show();
                                                 submit.setOnClickListener(new View.OnClickListener() {
@@ -384,7 +384,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                         InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                         if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                                 prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                                prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                                prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
 
                                                             Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
 
@@ -478,7 +478,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             //details.setText(details.getText()+""+"Waybill No: "+"\n"+"Product ID: "+"\n"+"Product: "+"\n"+"Unit: "+"\n"+"In: "+"\n"+"Out: "+"\n"+"Type: "+"\n"+"Unit Price: "+"\n"+"Suggested Unit Price: "+"\n"+"LMD Hub: "+"\n"+"Date: ");
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -489,7 +489,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                     //clears the product fragment
@@ -565,7 +565,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             //details.setText(details.getText()+""+"Waybill No: "+"\n"+"Product ID: "+"\n"+"Product: "+"\n"+"Unit: "+"\n"+"In: "+"\n"+"Out: "+"\n"+"Type: "+"\n"+"Unit Price: "+"\n"+"Suggested Unit Price: "+"\n"+"LMD Hub: "+"\n"+"Date: ");
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -576,7 +576,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                     //clears the product fragment
@@ -635,7 +635,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -646,7 +646,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                     //clears the product fragment
@@ -705,7 +705,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid2", "")+"\n"+"Out: "+prefs.getString("lmdid", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub2","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
+                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+prefs.getString("lmdid2", "")+"\n"+prefs.getString("lmdid", "")+"\n"+"MSB"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
 
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
@@ -717,7 +717,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     //Inv type version of inserting first.
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }else{
                                                         //Sale type version of inserting next.
@@ -789,7 +789,7 @@ public class LMtoLMDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction("N/A", prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid2", ""),
-                                                            prefs.getString("lmdid", ""), "Inv", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("lmdid", ""), "MSB", "0", "0", prefs.getString("lmdhub2", ""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
                                                         //clears the product fragment

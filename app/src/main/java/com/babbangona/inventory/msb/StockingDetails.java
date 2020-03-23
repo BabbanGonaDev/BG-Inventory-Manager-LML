@@ -211,37 +211,6 @@ public class StockingDetails extends Fragment implements View.OnClickListener {
                     switch (prefs.getString("transtype","XXXX")) {
                         case "Receiving":
                             //Smart checks commented out here
-                            /*//SmartUpdateAccess smartUpdateAccess = new SmartUpdateAccess(getActivity());
-                            smartUpdateAccess.open();
-                            Integer stockingQty = smartUpdateAccess.CheckStockingQty(prefs.getString("productid", ""));
-                            Integer unit = Integer.parseInt(etUnit.getText().toString());
-                            if(unit > stockingQty && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Stocking Quantity again.", Snackbar.LENGTH_LONG);
-                                etUnit.setText("");
-                                etUnit2.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-                            }
-
-                            String supplierName = smartUpdateAccess.CheckSupplier(prefs.getString("productid", ""));
-                            if(supplierName != prefs.getString("supplier name", "") && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Supplier again.", Snackbar.LENGTH_LONG);
-                                //tvSupplierName.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-                            }
-
-                            Integer cartonNo = smartUpdateAccess.CheckCartonNo(prefs.getString("productid", ""));
-                            if(unit % cartonNo != 0 && check.equals("no")){
-                                Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Please Confirm Quantity again.", Snackbar.LENGTH_LONG);
-                                etUnit.setText("");
-                                etUnit2.setText("");
-                                snackbar.show();
-                                check = "yes";
-                                break;
-                            }*/
 
                             new AlertDialog.Builder(getActivity())
                                     .setTitle("Begin stocking warehouse")
@@ -263,10 +232,6 @@ public class StockingDetails extends Fragment implements View.OnClickListener {
 
                                             details.setText(details.getText()+""+"Waybill No: "+(tvWaybillNo.getText().toString())+"\n"+"Product ID: "+prefs.getString("productid", "")+"\n"+"Product: "+prefs.getString("product", "")+"\n"+"Unit: "+etUnit.getText().toString()+"\n"+"In: "+prefs.getString("lmdid", "")+"\n"+"Out: "+prefs.getString("supplier ID", "")+"\n"+"Type: Inv"+"\n"+"Unit Price: 0"+"\n"+"Suggested Unit Price: 0"+"\n"+"LMD Hub: "+prefs.getString("lmdhub","")+"\n"+"Date: "+tvDate1.getText().toString());
 
-                                            //details.setText(details.getText()+""+"Waybill No: "+"\n"+"Product ID: "+"\n"+"Product: "+"\n"+"Unit: "+"\n"+"In: "+"\n"+"Out: "+"\n"+"Type: "+"\n"+"Unit Price: "+"\n"+"Suggested Unit Price: "+"\n"+"LMD Hub: "+"\n"+"Date: ");
-
-                                            //details2.setText(details2.getText()+"\n"+(tvWaybillNo.getText().toString())+"\n"+prefs.getString("productid", "")+"\n"+prefs.getString("product", "")+"\n"+etUnit.getText().toString()+"\n"+"\n"+"GIT-In"+"\n"+"Inv"+"\n"+"0"+"\n"+"0"+"\n"+prefs.getString("lmdhub","")+"\n"+tvDate1.getText().toString());
-
                                             final AlertDialog ad = alertadd.show();
                                             submit.setOnClickListener(new View.OnClickListener() {
                                                 @Override
@@ -274,15 +239,10 @@ public class StockingDetails extends Fragment implements View.OnClickListener {
                                                     InventoryTDBhandler db1 = new InventoryTDBhandler(getActivity());
                                                     if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
                                                             prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid", ""),
-                                                            prefs.getString("supplier ID", ""), "Inv", "0","0", prefs.getString("lmdhub",""), tvDate1.getText().toString()))) {
+                                                            prefs.getString("supplier ID", ""), "MSB", "0","0", prefs.getString("lmdhub",""), tvDate1.getText().toString()))) {
                                                         Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
                                                     }
-                                                    //Old version
-                                                    /*if (!db1.onAdd(new Transaction(tvWaybillNo.getText().toString(), prefs.getString("productid", ""),
-                                                            prefs.getString("product", ""), etUnit.getText().toString(), prefs.getString("lmdid", ""),
-                                                            "GIT-In", "Inv", "0","0", prefs.getString("lmdhub",""), tvDate1.getText().toString()))) {
-                                                        Toast.makeText(getActivity(), "Transaction already exists in the database", Toast.LENGTH_LONG).show();
-                                                    }*/
+
                                                     //clears the product fragment
                                                     prefs.edit().remove("product").commit();
                                                     prefs.edit().remove("productid").commit();

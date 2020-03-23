@@ -338,8 +338,7 @@ public class ViewAllTransactions extends AppCompatActivity {
                                     Log.d("MSG2", "Executing QUERY");
                                     db.updateSyncStatus(obj.get("UniqueID").toString(), obj.get("sync").toString());
                                 }
-                                finish();
-                                startActivity(new Intent(getApplicationContext(), ViewAllTransactions.class));
+                                recreate();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

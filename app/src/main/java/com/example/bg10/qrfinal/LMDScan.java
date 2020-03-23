@@ -116,8 +116,8 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("product", data[0]);
                                     prefsEdit.putString("productid", data[1]);
                                     prefsEdit.commit();
-                                    //check if the product id is a number of length 9
-                                    if ((data[1].length() != 9) || (!isDigitsOnly(data[1]))) {
+                                    //Check if the product id starts with "P" and is 11 characters
+                                    if ((data[1].length() != 11) || (!data[1].startsWith("P"))) {
                                         Toast.makeText(getApplicationContext(), "Please scan a BG product QR code to proceed", Toast.LENGTH_LONG).show();
                                         finish();
                                     }
@@ -295,7 +295,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("quantity", data[7]);   /*The Quantity*/
                                     prefsEdit.commit();
 
-                                    /*if(!data[4].matches(prefs.getString("lmdid", ""))  || data[5].charAt(0) != 'N' || (data[1].length() != 9) || (!isDigitsOnly(data[1])) || data[0].charAt(0) != 'W'){
+                                    /*if(!data[4].matches(prefs.getString("lmdid", ""))  || data[5].charAt(0) != 'N' || (data[1].length() != 11) || (!data[1].startsWith("P")) || data[0].charAt(0) != 'W'){
                                         //First check if "out" in qr is different from "out" selected, ......, then confirm item id, then confirm if its a waybill id.
                                         Toast.makeText(getApplicationContext(), "Kindly Scan the right Waybill for this Transaction.", Toast.LENGTH_LONG).show();
                                         finish();
@@ -312,7 +312,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "Incorrect Destination Warehouse, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -445,7 +445,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "Incorrect LMD Destination, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -562,7 +562,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("quantity", data[7]);   /*The Quantity*/
                                     prefsEdit.commit();
 
-                                    /*if(!data[3].matches(prefs.getString("lmdid", ""))  || data[4].charAt(0) != 'T' || (data[1].length() != 9) || (!isDigitsOnly(data[1])) || data[0].charAt(0) != 'W'){
+                                    /*if(!data[3].matches(prefs.getString("lmdid", ""))  || data[4].charAt(0) != 'T' || (data[1].length() != 11) || (!data[1].startsWith("P")) || data[0].charAt(0) != 'W'){
                                         //First check if "out" in qr is different from "out" selected, then check if its a warehouse, and then confirm item id, then confirm if its a waybill id.
                                         Toast.makeText(getApplicationContext(), "Kindly Scan the right Waybill for this Transaction.", Toast.LENGTH_LONG).show();
                                         finish();
@@ -575,7 +575,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "Warehouse Out locations don't match, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -688,7 +688,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("quantity", data[7]);   /*The Quantity*/
                                     prefsEdit.commit();
 
-                                    /*if(!data[3].matches(prefs.getString("lmdid", ""))  || data[4].charAt(0) != 'T' || (data[1].length() != 9) || (!isDigitsOnly(data[1])) || data[0].charAt(0) != 'W'){
+                                    /*if(!data[3].matches(prefs.getString("lmdid", ""))  || data[4].charAt(0) != 'T' || (data[1].length() != 11) || (!data[1].startsWith("P")) || data[0].charAt(0) != 'W'){
                                         //First check if "out" in qr is different from "out" selected, then check if its a warehouse, and then confirm item id, then confirm if its a waybill id.
                                         Toast.makeText(getApplicationContext(), "Kindly Scan the right Waybill for this Transaction.", Toast.LENGTH_LONG).show();
                                         finish();
@@ -701,7 +701,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "LMD Out locations don't match, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -837,7 +837,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "Incorrect Customer Destination, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -969,7 +969,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                         Toast.makeText(getApplicationContext(), "Incorrect Team Member Destination, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
-                                    }else if((data[1].length() != 9) || (!isDigitsOnly(data[1]))){
+                                    }else if((data[1].length() != 11) || (!data[1].startsWith("P"))){
                                         Toast.makeText(getApplicationContext(), "Incorrect Item ID, Kindly Check Waybill.", Toast.LENGTH_LONG).show();
                                         emptySharedPref();
                                         finish();
@@ -1081,7 +1081,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("product", data[0]);
                                     prefsEdit.putString("productid", data[1]);
                                     prefsEdit.commit();
-                                    if ((data[1].length() != 9) || (!isDigitsOnly(data[1]))) {
+                                    if ((data[1].length() != 11) || (!data[1].startsWith("P"))) {
                                         Toast.makeText(getApplicationContext(), "Please scan a BG product QR code to proceed", Toast.LENGTH_LONG).show();
                                         finish();
                                     }
@@ -1229,7 +1229,7 @@ public class LMDScan extends AppCompatActivity implements ZXingScannerView.Resul
                                     prefsEdit.putString("product", data[0]);
                                     prefsEdit.putString("productid", data[1]);
                                     prefsEdit.commit();
-                                    if ((data[1].length() != 9) || (!isDigitsOnly(data[1]))) {
+                                    if ((data[1].length() != 11) || (!data[1].startsWith("P"))) {
                                         Toast.makeText(getApplicationContext(), "Please scan a BG product QR code to proceed", Toast.LENGTH_LONG).show();
                                         finish();
                                     }
